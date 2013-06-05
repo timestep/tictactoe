@@ -62,11 +62,12 @@ class Tictactoe
 		0.upto(@game.length - 1) do |x|
 			@row = []
 			0.upto(@game.length - 1) do |y|
-				@row << @game[x][y]
+				print " #{@game[x][y]} "
 			end
-			print @row
+			# print @row
 			puts 
 		end
+		# print @game
 	end
 
 
