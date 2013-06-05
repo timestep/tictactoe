@@ -74,6 +74,10 @@ class Tictactoe
 	def choice
 		puts "Which position number?"
 		@val=gets.chomp.to_i
+		if @val>@dim**2 || @val == 0
+			puts "Please choose a real number"
+			self.choice
+		end
 		0.upto(@dim-1) do |x|
 			0.upto(@dim-1) do |y|
 				if @game[x][y] == @val

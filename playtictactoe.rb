@@ -22,8 +22,7 @@ class Playtictac
 		turn_max = @playing.dim**2
 		turn_counter = 0
 		turn = true	
-		puts turn_max
-
+		
 		while turn_counter<turn_max
 			
 			if turn # player1 
@@ -33,24 +32,31 @@ class Playtictac
 				@playing.check
 				@playing.display
 				@playing.check
-				# if @win 
-				# 	puts "Player 1 Wins"
-				# end
+				if @playing.win 
+					puts "Player 1 Wins"
+					break
+				end
 				turn = false			
 				turn_counter+=1
-				puts turn
+				
 			else
 				@playing.playeratr="x"
 				@playing.choice
 				@playing.display
 				@playing.check
-				# if @win 
-				# 	puts "Player 2 Wins"
-				# end
+				if @playing.win 
+					puts "Player 2 Wins"
+					break
+				end
 				turn = true
 				turn_counter+=1
-				puts turn
+				
 			end
+		end
+		if @playing.win
+			puts "Congrats"
+		else
+			puts "Tied Game"
 		end
 	end
 end
