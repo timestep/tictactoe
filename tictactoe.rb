@@ -1,9 +1,9 @@
 class Tictactoe
 
-	attr_accessor :check, :display, :dim, :game, :win, :column, :row, :dummy, :daig1, :daig2, :temp
+	attr_accessor :check,:playeratr, :display, :dim, :game, :win, :column, :row, :dummy, :daig1, :daig2, :temp, :val
 
 	def initialize
-		@game =[]
+		@game = []
 		@dim = 0
 	end
 
@@ -65,17 +65,31 @@ class Tictactoe
 				@row << @game[x][y]
 			end
 			print @row
-			puts
+			puts 
 		end
 	end
 
-		# def win_state
-		# 	if win = 1
-		# 		puts "You win"
-		# 	elsif win = 2
-		# 		puts "You Lose"
-		# 	else 
-		# 		puts "Draw"
-		# end
+	def win_state
+		if win = 1
+			puts "You win"
+		elsif win = 2
+			puts "You Lose"
+		else 
+			puts "Draw"
+	end
+	
+	def choice
+		puts "Which position number?"
+		@val=gets.chomp.to_i
+		0.upto(@dim-1) do |x|
+			0.upto(@dim-1) do |y|
+				if @game[x][y] == @val
+					@game[x][y] = @playeratr
+				end
+			end
+		end
+		
+	end
+
 end
 
