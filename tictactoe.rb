@@ -19,7 +19,7 @@ class Tictactoe
 				@dummy << @game[x][y]
 			end
 			if @column == @dummy.delete_if {|ele| ele != @column.first}
-				win = true
+				@win = true
 			end
 		end
 
@@ -33,7 +33,7 @@ class Tictactoe
 				@dummy << @game[x][y]
 			end
 			if @row == @dummy.delete_if {|ele| ele != @row.first}
-				win = true
+				@win = true
 			end
 		end
 
@@ -44,7 +44,7 @@ class Tictactoe
 			@dummy << @game[x][x]
 		end
 		if @daig1 == @dummy.delete_if {|ele| ele != @daig1.first}
-			win = true
+			@win = true
 		end
 
 		@daig2 = []
@@ -54,7 +54,7 @@ class Tictactoe
 			@dummy << @game[@game.length - 1 - x][x]
 		end
 		if @daig2 == @dummy.delete_if {|ele| ele != @daig2.first}
-			win = true
+			@win = true
 		end
 	end
 
@@ -69,15 +69,8 @@ class Tictactoe
 		end
 	end
 
-	def win_state
-		if win = 1
-			puts "You win"
-		elsif win = 2
-			puts "You Lose"
-		else 
-			puts "Draw"
-	end
-	
+
+
 	def choice
 		puts "Which position number?"
 		@val=gets.chomp.to_i
